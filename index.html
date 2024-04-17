@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Animated Clock</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <canvas id="canvas" width="400px" height="400px"></canvas>
+
+    <form>
+      <div>
+        <h2>Customize Your Clock Appearance</h2>
+      </div>
+      <div>
+        <label for="border-color">Border Color </label>
+        <input
+          type="color"
+          name="border-color"
+          id="border-color"
+          value="#0D1321"
+        />
+      </div>
+      <div>
+        <label for="face-color">Face Color</label>
+        <input type="color" name="face-color" id="face-color" value="#1D2D44" />
+      </div>
+      <div>
+        <label for="big-ticks-color">Big Ticks Color</label>
+        <input
+          type="color"
+          name="big-ticks-color"
+          id="big-ticks-color"
+          value="#E0E1DD"
+        />
+      </div>
+      <div>
+        <label for="small-ticks-color">Small Ticks Color</label>
+        <input
+          type="color"
+          name="small-ticks-color"
+          id="small-ticks-color"
+          value="#C5D86D"
+        />
+      </div>
+      <div>
+        <label for="hour-hand-color">Hour Hand Color</label>
+        <input
+          type="color"
+          name="hour-hand-color"
+          id="hour-hand-color"
+          value="#E84545"
+        />
+      </div>
+      <div>
+        <label for="min-hand-color">Minute Hand Color</label>
+        <input
+          type="color"
+          name="min-hand-color"
+          id="min-hand-color"
+          value="#903749"
+        />
+      </div>
+      <div>
+        <label for="sec-hand-color">Second Hand Color</label>
+        <input
+          type="color"
+          name="sec-hand-color"
+          id="sec-hand-color"
+          value="#53354A"
+        />
+      </div>
+      <div>
+        <button id="download-btn">Download Clock Image</button>
+      </div>
+    </form>
+  </body>
+</html>
