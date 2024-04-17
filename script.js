@@ -6,6 +6,8 @@ const smallTicksColor = document.getElementById("small-ticks-color")
 const hourHandColor = document.getElementById("hour-hand-color")
 const minHandColor = document.getElementById("min-hand-color")
 const secHandColor = document.getElementById("sec-hand-color")
+const colorInput = document.querySelectorAll("input[type='color']")
+const downloadBtn = document.getElementById("download-btn")
 
 // Get the refrence to the canvas and its context
 const canvas = document.getElementById("canvas")
@@ -40,7 +42,7 @@ function drawClock() {
   for (let i = 0; i < 60; i++) {
     ctx.beginPath()
     ctx.lineWidth = i % 5 === 0 ? 4 : 2
-    ctx.strokeStyle = 1 % 5 === 0 ? bigTicksColor.value : smallTicksColor.value
+    ctx.strokeStyle = i % 5 === 0 ? bigTicksColor.value : smallTicksColor.value
 
     // Set starting point
     ctx.moveTo(
@@ -107,3 +109,33 @@ function drawClock() {
   requestAnimationFrame(drawClock)
 }
 drawClock()
+
+// Function to save the colors to local storage
+function saveColors() {
+  colorInput.forEach((input) => {
+    localStorage.setItem(input.id, input.value)
+  })
+}
+
+// Function to load the colors from local storage
+function loadColors() {
+  colorInput.forEach((input) => {
+    input.value = localStorage.getItem(input.id) || input.value
+  })
+}
+
+// Function to download the image of the clock
+function downloadImg() {
+  const dataURL = canvas.toDataURL("image/png")
+  const a = document.createElement("a")
+  a.href = dataURL
+  a.download = "clock.png"
+  a.click()
+}
+
+// Event Listeners
+colorInput.forEach((input) => {
+  input.addEventListener("input", saveColors)
+})
+window.addEventListener("load", loadColors)
+downloadBtn.addEventListener("click", downloadImg)
